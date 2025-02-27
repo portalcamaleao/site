@@ -30,7 +30,7 @@
 
         /* Cabeçalho */
         .header {
-            background: rgba(0, 0, 0, 0.5);
+            background: rgb(40, 196, 9);
             padding: 10px 20px;
             display: flex;
             justify-content: center;
@@ -54,7 +54,7 @@
             font-size: 24px;
             font-weight: bold;
             text-transform: uppercase;
-            color: rgb(0, 255, 34); /* Cor do título no cabeçalho */
+            color: rgb(255, 255, 255); /* Cor do título no cabeçalho */
         }
 
         /* Três pontinhos ao lado do nome */
@@ -70,7 +70,7 @@
         .menu {
             display: none;
             width: 100%;
-            background: rgba(60, 255, 0, 0.733);
+            background: rgb(255, 81, 0);
             text-align: center;
             padding: 10px 0;
             position: absolute;
@@ -187,6 +187,209 @@
             margin-top: 50px;
         }
 
+        /* Modal */
+       /* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center; /* Alinha todo o texto ao centro */
+    background: linear-gradient(to right, #4CAF50, #2196F3, #9C27B0);
+    color: white;
+}
+
+/* Cabeçalho */
+.header {
+    background: rgb(40, 196, 9);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    flex-direction: column;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: rgb(255, 255, 255); /* Cor do título no cabeçalho */
+}
+
+/* Três pontinhos ao lado do nome */
+.menu-icon {
+    font-size: 22px;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+}
+
+/* Menu dropdown */
+.menu {
+    display: none;
+    width: 100%;
+    background: rgb(255, 81, 0);
+    text-align: center;
+    padding: 10px 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.menu a {
+    display: block;
+    padding: 0px;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 18px;
+    transition: background 0.3s;
+}
+
+.menu a:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Animação de surgimento */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    overflow: auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    animation: fadeIn 0.5s ease;
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 80%; /* Limita a altura máxima do conteúdo */
+    overflow-y: auto; /* Adiciona barra de rolagem se necessário */
+    text-align: left;
+    position: relative;
+}
+
+.modal img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.modal h2 {
+    font-size: 28px;
+    margin-top: 20px;
+    font-weight: 700;
+}
+
+.modal p {
+    font-size: 16px;
+    margin-top: 10px;
+    font-weight: 400;
+}
+
+.modal .close {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal .close:hover,
+.modal .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.social-icons {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.social-icons i {
+    font-size: 30px;
+    margin: 0 10px;
+    cursor: pointer;
+    color: #2196F3;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 90%;
+        max-height: 80%; /* Ajusta a altura máxima também para dispositivos menores */
+    }
+
+    .modal h2 {
+        font-size: 24px;
+    }
+
+    .modal p {
+        font-size: 14px;
+    }
+}
+
+
+
+        .social-icons {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .social-icons i {
+            font-size: 30px;
+            margin: 0 10px;
+            cursor: pointer;
+            color: #2196F3;
+        }
+
         /* Responsividade */
         @media (max-width: 768px) {
             .header {
@@ -256,19 +459,19 @@
             <h2>Destaques</h2>
             <div class="news-grid">
                 <article class="news-card">
-                    <h3>Notícia 1</h3>
-                    <p>Resumo breve da notícia para chamar a atenção do leitor.</p>
-                    <a href="#" class="read-more">Leia mais</a>
+                    <h3>Avanços Tecnológicos no Brasil</h3>
+                    <p>O Brasil tem se destacado no setor de tecnologia, trazendo inovações que impactam diretamente o mercado global...</p>
+                    <a href="javascript:void(0)" class="read-more" onclick="openModal('news1')">Leia mais</a>
                 </article>
                 <article class="news-card">
-                    <h3>Notícia 2</h3>
-                    <p>Resumo breve da notícia para chamar a atenção do leitor.</p>
-                    <a href="#" class="read-more">Leia mais</a>
+                    <h3>Exploração Espacial: O Futuro da Humanidade</h3>
+                    <p>A corrida espacial está mais intensa do que nunca, com novas missões sendo lançadas para explorar Marte...</p>
+                    <a href="javascript:void(0)" class="read-more" onclick="openModal('news2')">Leia mais</a>
                 </article>
                 <article class="news-card">
-                    <h3>Notícia 3</h3>
-                    <p>Resumo breve da notícia para chamar a atenção do leitor.</p>
-                    <a href="#" class="read-more">Leia mais</a>
+                    <h3>Mudanças Climáticas e Seus Efeitos</h3>
+                    <p>O mundo enfrenta desafios relacionados às mudanças climáticas, com eventos extremos cada vez mais frequentes...</p>
+                    <a href="javascript:void(0)" class="read-more" onclick="openModal('news3')">Leia mais</a>
                 </article>
             </div>
         </section>
@@ -279,7 +482,101 @@
         <p>&copy; 2025 Portal Camaleão. Todos os direitos reservados.</p>
     </footer>
 
-    <!-- Script para abrir e fechar o menu -->
+    <!-- Modal de notícias -->
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+        <style>
+            .modal-content {
+                font-family: 'Merriweather', serif;
+                color: black;
+                background-color: white;
+                padding: 20px;
+                border-radius: 0px;
+                max-width: 600px;
+                margin: auto;
+            }
+            .modal h2 {
+                font-family: 'Lora', serif;
+                font-weight: 700;
+            }
+            .modal p {
+                font-family: 'Merriweather', serif;
+                font-weight: 400;
+            }
+            .social-icons i {
+                color: black;
+            }
+        </style><head>
+    <style>
+        /* Código CSS para o botão de compartilhamento e o modal */
+        .share-button {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .share-button button {
+            background-color: #2196F3; /* Cor de fundo */
+            color: white; /* Cor do texto */
+            font-size: 16px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .share-button button:hover {
+            background-color: #0b7dda; /* Cor de fundo ao passar o mouse */
+        }
+    </style>
+</head>
+
+    </head>
+    
+    <div id="modal-news1" class="modal" style="background-color: #133818;"> 
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('news1')">&times;</span>
+            <img src="https://th.bing.com/th/id/R.798f6882d34cf0c4e37d1f5432629ee2?rik=cJjPvFQZlFdMyw&pid=ImgRaw&r=0" alt="Avanços Tecnológicos">
+            <h2>Avanços Tecnológicos no Brasil</h2>
+            <p>O Brasil tem se destacado no setor de tecnologia, trazendo inovações que impactam diretamente o mercado global...</p>
+            
+            <!-- Botão de compartilhamento -->
+            <div class="share-button">
+                <button onclick="shareContent('https://exemplo.com/news1', 'Avanços Tecnológicos no Brasil')">Compartilhar</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="modal-news2" class="modal" style="background-color: #133818;"> 
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('news2')">&times;</span>
+            <img src="space-news.jpg" alt="Exploração Espacial">
+            <h2>Exploração Espacial: O Futuro da Humanidade</h2>
+            <p>A corrida espacial está mais intensa do que nunca, com novas missões sendo lançadas para explorar Marte...</p>
+            
+            <!-- Botão de compartilhamento -->
+            <div class="share-button">
+                <button onclick="shareContent('https://exemplo.com/news2', 'Exploração Espacial: O Futuro da Humanidade')">Compartilhar</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="modal-news3" class="modal" style="background-color: #133818;"> 
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('news3')">&times;</span>
+            <img src="climate-change.jpg" alt="Mudanças Climáticas">
+            <h2>Mudanças Climáticas e Seus Efeitos</h2>
+            <p>O mundo enfrenta desafios relacionados às mudanças climáticas, com eventos extremos cada vez mais frequentes...</p>
+            
+            <!-- Botão de compartilhamento -->
+            <div class="share-button">
+                <button onclick="shareContent('https://exemplo.com/news3', 'Mudanças Climáticas e Seus Efeitos')">Compartilhar</button>
+            </div>
+        </div>
+    </div>
+    
+    
+    <!-- Script para abrir e fechar o menu e o modal -->
     <script>
         function toggleMenu() {
             var menu = document.getElementById("menu");
@@ -289,6 +586,59 @@
                 menu.style.display = "block";
             }
         }
-    </script>
+
+        function openModal(newsId) {
+            var modal = document.getElementById('modal-' + newsId);
+            modal.style.display = "block";
+        }
+
+        function closeModal(newsId) {
+            var modal = document.getElementById('modal-' + newsId);
+            modal.style.display = "none";
+        }
+
+        // Fechar modal ao clicar fora dele
+        window.onclick = function(event) {
+            var modals = document.querySelectorAll('.modal');
+            modals.forEach(function(modal) {
+                if (event.target === modal) {
+                    modal.style.display = "none";
+                }
+            });
+        }
+    </script><script>
+    function toggleMenu() {
+        var menu = document.getElementById("menu");
+        if (menu.style.display === "block") {
+            menu.style.display = "none";
+        } else {
+            menu.style.display = "block";
+        }
+    }
+
+    function openModal(newsId) {
+        var modal = document.getElementById('modal-' + newsId);
+        modal.style.display = "block";
+        document.querySelector('.header').style.display = "none"; // Esconde o cabeçalho
+    }
+
+    function closeModal(newsId) {
+        var modal = document.getElementById('modal-' + newsId);
+        modal.style.display = "none";
+        document.querySelector('.header').style.display = "flex"; // Mostra o cabeçalho novamente
+    }
+
+    // Fechar modal ao clicar fora dele
+    window.onclick = function(event) {
+        var modals = document.querySelectorAll('.modal');
+        modals.forEach(function(modal) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+                document.querySelector('.header').style.display = "flex"; // Garante que o cabeçalho apareça
+            }
+        });
+    }
+</script>
+
 </body>
 </html>
