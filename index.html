@@ -606,7 +606,21 @@ body {
                 }
             });
         }
-    </script><script>
+    </script><script>// scripts.js
+function shareContent(url, title) {
+    if (navigator.share) {
+        navigator.share({
+            title: title,
+            url: url
+        })
+        .then(() => console.log('Compartilhado com sucesso!'))
+        .catch((error) => console.log('Erro ao compartilhar:', error));
+    } else {
+        // Caso o navegador não suporte a API de compartilhamento nativo, você pode criar links alternativos
+        window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(title + ': ' + url)}`, '_blank');
+    }
+}
+
     function toggleMenu() {
         var menu = document.getElementById("menu");
         if (menu.style.display === "block") {
