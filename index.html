@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Camaleão</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <meta name="theme-color" content="#4CAF50">
+    <link rel="icon" type="image/png" href="favicon.png"> <!-- Ícone da guia -->
+
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center; /* Alinha todo o texto ao centro */
+            background: linear-gradient(to right, #4CAF50, #2196F3, #9C27B0);
+            color: white;
+        }
+
+        /* Cabeçalho */
+        .header {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            flex-direction: column;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: rgb(0, 255, 34); /* Cor do título no cabeçalho */
+        }
+
+        /* Três pontinhos ao lado do nome */
+        .menu-icon {
+            font-size: 22px;
+            color: white;
+            cursor: pointer;
+            position: absolute;
+            right: 10px;
+        }
+
+        /* Menu dropdown */
+        .menu {
+            display: none;
+            width: 100%;
+            background: rgba(60, 255, 0, 0.733);
+            text-align: center;
+            padding: 10px 0;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .menu a {
+            display: block;
+            padding: 0px;
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            font-size: 18px;
+            transition: background 0.3s;
+        }
+
+        .menu a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Animação de surgimento */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Banner */
+        .banner {
+            height: 400px;
+            background: url('banner.jpg') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            margin-top: 60px;
+        }
+
+        .banner-content {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .banner h2 {
+            font-size: 36px;
+        }
+
+        .banner p {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        /* Conteúdo Principal */
+        .main-content {
+            padding: 50px;
+        }
+
+        .highlights {
+            text-align: center;
+            width: 100%;
+        }
+
+        .highlights h2 {
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        .news-grid {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .news-card {
+            width: 90%; /* Ajuste para telas menores */
+            max-width: 400px; /* Limite para telas grandes */
+            margin: 10px 0; /* Espaçamento entre os cards */
+            background: white;
+            color: black;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .news-card:hover {
+            transform: scale(1.05);
+        }
+
+        .read-more {
+            display: inline-block;
+            margin-top: 10px;
+            color: #2196F3;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .read-more:hover {
+            text-decoration: underline;
+        }
+
+        /* Rodapé */
+        .footer {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .header {
+                text-align: center;
+                padding: 10px;
+            }
+
+            .banner {
+                height: auto;
+                padding: 20px;
+            }
+
+            .banner-content {
+                max-width: 90%;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            .menu-icon {
+                font-size: 20px;
+            }
+
+            .main-content {
+                padding: 20px;
+            }
+
+            .highlights h2 {
+                font-size: 24px;
+            }
+
+            .news-grid {
+                padding: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header class="header">
+        <div class="header-content">
+            <h1 class="logo">Portal Camaleão</h1>
+            <div class="menu-icon" onclick="toggleMenu()">
+                <i class="fas fa-ellipsis-v"></i> <!-- Ícone de três pontinhos -->
+            </div>
+        </div>
+        <nav class="menu" id="menu">
+            <a href="#">Início</a>
+            <a href="#">Notícias</a>
+            <a href="#">Esportes</a>
+            <a href="#">Contato</a>
+        </nav>
+    </header>
+
+    <!-- Banner principal -->
+    <section class="banner">
+        <div class="banner-content">
+            <h2>Bem-vindo ao Portal Camaleão</h2>
+            <p>As últimas notícias, atualizações e destaques em um só lugar.</p>
+        </div>
+    </section>
+
+    <!-- Conteúdo principal -->
+    <main class="main-content">
+        <section class="highlights">
+            <h2>Destaques</h2>
+            <div class="news-grid">
+                <article class="news-card">
+                    <h3>Notícia 1</h3>
+                    <p>Resumo breve da notícia para chamar a atenção do leitor.</p>
+                    <a href="#" class="read-more">Leia mais</a>
+                </article>
+                <article class="news-card">
+                    <h3>Notícia 2</h3>
+                    <p>Resumo breve da notícia para chamar a atenção do leitor.</p>
+                    <a href="#" class="read-more">Leia mais</a>
+                </article>
+                <article class="news-card">
+                    <h3>Notícia 3</h3>
+                    <p>Resumo breve da notícia para chamar a atenção do leitor.</p>
+                    <a href="#" class="read-more">Leia mais</a>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+        <p>&copy; 2025 Portal Camaleão. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Script para abrir e fechar o menu -->
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("menu");
+            if (menu.style.display === "block") {
+                menu.style.display = "none";
+            } else {
+                menu.style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>
